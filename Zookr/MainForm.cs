@@ -67,7 +67,7 @@ namespace Zookr
             this.DragDrop += new DragEventHandler(MainFormDragDrop);
                                     
             searchDirTextBox.DataBindings.Add("Text", this, "SearchDirPath");
-            toleranceBar.DataBindings.Add("Value", this, "Tolerance");
+            //toleranceBar.DataBindings.Add("Value", this, "Tolerance");
         }
 
         public void InvokePropertyChanged(PropertyChangedEventArgs e)
@@ -286,6 +286,17 @@ namespace Zookr
             blackPen.DashPattern = dashValues;
             e.Graphics.DrawRectangle(blackPen, 0, 0, e.ClipRectangle.Width - 1, e.ClipRectangle.Height - 1);
             base.OnPaint(e);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();            
         }
     }
 }
